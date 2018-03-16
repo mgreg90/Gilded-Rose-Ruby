@@ -25,7 +25,7 @@ class GildedRose
 
       def match? name
         case matcher
-        when String then !!(name == matcher)
+        when String then !!(name.downcase == matcher.downcase)
         when Regexp then !!(name =~ matcher)
         end
       end
