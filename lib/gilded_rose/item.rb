@@ -23,7 +23,7 @@ class GildedRose
     end
 
     def klass
-      Type.all.each do |type|
+      Type.each do |type|
         return type.klass if type.match? @name
       end
       raise NoKlassError, "#{@name} is not associated to a valid Class!"

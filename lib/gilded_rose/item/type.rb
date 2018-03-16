@@ -14,6 +14,10 @@ class GildedRose
         ]
       end
 
+      def self.each &block
+        all.each &block
+      end
+
       def initialize klass, matcher=nil
         @klass = klass
         @matcher = matcher || (klass::MATCHER if defined?(klass::MATCHER))
