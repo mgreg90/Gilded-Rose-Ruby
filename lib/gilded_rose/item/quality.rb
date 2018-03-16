@@ -5,7 +5,7 @@ class GildedRose
     INCREMENT = :+
     DECREMENT = :-
     SET = :set
-    
+
     ACTIONS = [INCREMENT, DECREMENT, SET]
 
     MAX_QUALITY = 50
@@ -18,10 +18,11 @@ class GildedRose
     end
 
     def change amount:, action:
+      raise ArgumentError, "Invalid Action!" unless ACTIONS.include?(action)
       case action
-      when :set then @value = amount
-      when :+ then increment amount
-      when :- then decrement amount
+      when SET        then @value = amount
+      when INCREMENT  then increment amount
+      when DECREMENT  then decrement amount
       end
     end
 
@@ -39,6 +40,14 @@ class GildedRose
 
     def <=> other_val
       @value <=> other_val
+    end
+
+    def to_s
+      "#{@value}"
+    end
+
+    def to_i
+      @value
     end
 
   end

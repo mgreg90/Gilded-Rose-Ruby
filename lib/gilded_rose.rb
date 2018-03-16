@@ -6,7 +6,7 @@ class GildedRose
   attr_accessor :item
 
   def initialize(name:, days_remaining:, quality:)
-    @item = Item.new(name, days_remaining, quality)
+    @item = Item.create(name, days_remaining, quality)
   end
 
   def tick

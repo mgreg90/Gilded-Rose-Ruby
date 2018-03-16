@@ -26,7 +26,7 @@ class GildedRose
         quality.change(change_options)
         @days_remaining -= 1
       end
-      
+
       def before_sell_date?
         days_remaining <= 0
       end

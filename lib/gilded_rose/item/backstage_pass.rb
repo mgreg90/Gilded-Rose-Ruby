@@ -3,16 +3,16 @@ class GildedRose
     class BackstagePass < GenericItem
 
       MATCHER = /backstage pass/i
-      
+
       private
-      
+
       def change_options
         {
           amount: quality_change,
           action: before_sell_date? ? Quality::SET : Quality::INCREMENT
         }
       end
-      
+
       def quality_change
         case days_remaining
         when (- Float::INFINITY)..0
